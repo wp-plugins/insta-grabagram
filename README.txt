@@ -16,7 +16,7 @@ Simply register your Instagram application to authenticate and authorize your re
 Then whenever an image is posted to Instagram with a specific hashtag this plugin will
 request only those images and render them in your WordPress installation.
 
-Please read the Instagram Term for you own usage at http://Instagram.com/about/legal/terms/.
+Please read the Instagram terms for you own usage at http://Instagram.com/about/legal/terms/.
 
 == Installation ==
 
