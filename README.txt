@@ -1,29 +1,29 @@
 === Plugin Name ===
 Contributors: erichmond
 Donate link: http://www.squareonemd.co.uk/
-Tags: instagram, tag, hashtag
+Tags: Instagram, tag, hashtag
 Requires at least: 4.1
 Tested up to: 4.1
 Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin grabs list of images specific to a tagged image from the instagram API.
+This plugin creates a feed of Instagram images on your WordPress site based on a specific Instagram hashtag.
 
 == Description ==
 
-Simply register your instagram application to authenticate and authorize your requests.
-Then whenever an image is posted to instagram with a specific hashtag this plugin will
-request only those images and render them in your WordPress install.
+Simply register your Instagram application to authenticate and authorize your requests.
+Then whenever an image is posted to Instagram with a specific hashtag this plugin will
+request only those images and render them in your WordPress installation.
 
-This plugin uses Tom McFarlin's WP plugin boilerplate.
+Please read the Instagram Term for you own usage at http://Instagram.com/about/legal/terms/.
 
 == Installation ==
 
-To take full advantage of this plugin you'll need an instagram account and a registered
-instagram application, simply goto http://instagram.com/developer/ once your application
+To take full advantage of this plugin you'll need an Instagram account and a registered
+Instagram application, simply goto http://Instagram.com/developer/ once your application
 has been registered you will be provided with a CLIENT ID and a CLIENT SECRET you will use
-these to authenticate the requests from your site to instagram.
+these to authenticate the requests from your site to Instagram.
 
 To install the plugin:
 
@@ -35,11 +35,11 @@ To install the plugin:
 
 = I don't have an instagam account =
 
-Simply go to http://instagram.com and register your users account.
+Simply go to http://Instagram.com and register your users account.
 
 = Where can I find my CLIENT ID and CLIENT SECRET =
 
-Once logged in to your instagram account go to http://instagram.com/developer/ and register your application,
+Once logged in to your Instagram account go to http://Instagram.com/developer/ and register your application,
 once activated you will be given the CLIENT ID and CLIENT SECRET in your account, you can manage mulitple applications.
 
 == Screenshots ==
