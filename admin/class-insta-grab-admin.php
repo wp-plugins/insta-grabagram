@@ -124,18 +124,73 @@ class Insta_Grab_Admin {
         // Set class property
         $this->options = get_option( 'instagrabagram_option_name' );
         ?>
-        <div class="wrap">
-            <?php screen_icon(); ?>
-            <h2>Instagrabagram</h2>           
-            <form method="post" action="options.php">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'instagrabagram_option_group' );   
-                do_settings_sections( 'instagrabagram-setting-admin' );
-                submit_button(); 
-            ?>
-            </form>
-        </div>
+			        
+			<div class="wrap">
+				
+				<div id="icon-options-general" class="icon32"></div>
+				<h2>Instagrabagram</h2>
+				
+				<?php if (empty($this->options['insta_apiKey']) || empty($this->options['insta_apiSecret']) || empty($this->options['insta_apiCallback']) || empty($this->options['insta_count'])) { ?>
+					<div style="width:99%; padding: 5px;" class="error below-h2"><p>It doesn't look like there are any Instagram Client details saved yet, make sure to create a new Client in your Instagram account, <a href="http://instagram.com/developer/" target="_blank">do you want to create that now?</a></p></div>
+				<?php } ?>
+				
+				
+				<div id="poststuff">
+				
+					<div id="post-body" class="metabox-holder columns-2">
+					
+						<!-- main content -->
+						<div id="post-body-content">
+							
+							<div class="meta-box-sortables ui-sortable">
+								
+								<div class="postbox">
+								
+									<div class="inside">
+							            <form method="post" action="options.php">
+							            <?php
+							                // This prints out all hidden setting fields
+							                settings_fields( 'instagrabagram_option_group' );   
+							                do_settings_sections( 'instagrabagram-setting-admin' );
+							                submit_button(); 
+							            ?>
+							            </form>
+									</div> <!-- .inside -->
+								
+								</div> <!-- .postbox -->
+								
+							</div> <!-- .meta-box-sortables .ui-sortable -->
+							
+						</div> <!-- post-body-content -->
+						
+						<!-- sidebar -->
+						<div id="postbox-container-1" class="postbox-container">
+							
+							<div class="meta-box-sortables">
+								
+								<div class="postbox">
+								
+									<h3><span>What next?</span></h3>
+									<div class="inside">
+							            <p>Once all of the settings from your new Instagram Client are saved copy and paste the code below into your template files where you want the feed to appear.</p>
+							            <p>&lt;?php do_action('insta_grab_a_gram'); ?&gt;</p>
+							            
+									</div> <!-- .inside -->
+									
+								</div> <!-- .postbox -->
+								
+							</div> <!-- .meta-box-sortables -->
+							
+						</div> <!-- #postbox-container-1 .postbox-container -->
+						
+					</div> <!-- #post-body .metabox-holder .columns-2 -->
+					
+					<br class="clear">
+				</div> <!-- #poststuff -->
+				
+			</div> <!-- .wrap -->
+
+        
         <?php
     }
 
@@ -236,7 +291,7 @@ class Insta_Grab_Admin {
      */
     public function print_section_info()
     {
-        print 'Enter all instagram settings here for the API:';
+        print 'Enter all your Instagram Client settings here inorder to make requests to the Instagram API:';
     }
 
     /** 
