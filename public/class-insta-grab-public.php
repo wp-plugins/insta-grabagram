@@ -109,6 +109,8 @@ class Insta_Grab_Public {
 	 * @since    1.0.0
 	 */
 	public function get_instagram_settings () {
+		
+		$container_id = 'instagrab';
 
 		$instasetup = get_option( 'instagrabagram_option_name' );
 		if (!empty($instasetup)) {
@@ -130,7 +132,7 @@ class Insta_Grab_Public {
 			if ($medias->meta->code == '400'){
 				echo 'Cannot connect to your images';		
 			} else {
-				echo '<article id="instagrab" class="hentry">';
+				echo '<article id="'.apply_filters('igag_container_id', $container_id).'" class="hentry">';
 				echo '<ul class="entry-content">';
 						$count = 0;
 					    foreach ($medias->data as $media) {
