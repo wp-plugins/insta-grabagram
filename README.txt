@@ -52,6 +52,10 @@ TBC
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Readme changes
+
 = 1.0.1 =
 
 * Improved settings interface.
