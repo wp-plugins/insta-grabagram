@@ -48,7 +48,7 @@ once activated you will be given the CLIENT ID and CLIENT SECRET in your account
 
 == Screenshots ==
 
-TBC
+Screen shots coming soon
 
 == Changelog ==
 
