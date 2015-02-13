@@ -48,9 +48,7 @@ once activated you will be given the CLIENT ID and CLIENT SECRET in your account
 
 == Screenshots ==
 
-1. Insta-grab-a-gram has a simple settings pages for essential api settings `/assets/screenshot.png`
-
-2. Insta-grab-a-gram frontend example `/assets/screenshot2.png`
+TBC
 
 == Changelog ==
 
