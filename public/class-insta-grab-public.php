@@ -110,7 +110,8 @@ class Insta_Grab_Public {
 	 */
 	public function get_instagram_settings () {
 		
-		$container_id = 'instagrab';
+		$article_id = 'instagrab';
+		$ul_id = 'igag-ul';
 
 		$instasetup = get_option( 'instagrabagram_option_name' );
 		if (!empty($instasetup)) {
@@ -132,8 +133,9 @@ class Insta_Grab_Public {
 			if ($medias->meta->code == '400'){
 				echo 'Cannot connect to your images';		
 			} else {
-				echo '<article id="'.apply_filters('igag_container_id', $container_id).'" class="hentry">';
-				echo '<ul class="entry-content">';
+				echo '<article id="'.apply_filters('igag_article_id', $article_id).'" class="hentry">';
+				do_action('igag_before_ul_list_images');
+				echo '<ul id="'. apply_filters('igag_ul_id',$ul_id) .'" class="entry-content">';
 						$count = 0;
 					    foreach ($medias->data as $media) {
 					    	if ($count == $media_count) continue;
@@ -144,6 +146,7 @@ class Insta_Grab_Public {
 							$count++;
 					    }
 				echo '</ul>';
+				do_action('igag_after_ul_list_images');
 				echo '</article>';
 			}
 		} else {

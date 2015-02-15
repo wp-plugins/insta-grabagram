@@ -74,6 +74,7 @@ class Insta_Grab_Admin {
 		 */
 
 		wp_enqueue_style( $this->insta_grab, plugin_dir_url( __FILE__ ) . 'css/insta-grab-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->insta_grab.'-prism', plugin_dir_url( __FILE__ ) . 'css/prism.css', array(), $this->version, 'all' );
 
 	}
 
@@ -97,6 +98,7 @@ class Insta_Grab_Admin {
 		 */
 
 		wp_enqueue_script( $this->insta_grab, plugin_dir_url( __FILE__ ) . 'js/insta-grab-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->insta_grab .'-prism', plugin_dir_url( __FILE__ ) . 'js/prism.js', array(), $this->version, false );
 
 	}
 
@@ -124,7 +126,7 @@ class Insta_Grab_Admin {
         // Set class property
         $this->options = get_option( 'instagrabagram_option_name' );
         ?>
-			        
+			   
 			<div class="wrap">
 				
 				<div id="icon-options-general" class="icon32"></div>
@@ -133,7 +135,8 @@ class Insta_Grab_Admin {
 				<?php if (empty($this->options['insta_apiKey']) || empty($this->options['insta_apiSecret']) || empty($this->options['insta_apiCallback']) || empty($this->options['insta_count'])) { ?>
 					<div style="width:99%; padding: 5px;" class="error below-h2"><p>It doesn't look like there are any Instagram Client details saved yet, make sure to create a new Client in your Instagram account, <a href="http://instagram.com/developer/" target="_blank">do you want to create that now?</a></p></div>
 				<?php } ?>
-				
+
+		
 				
 				<div id="poststuff">
 				
@@ -142,24 +145,94 @@ class Insta_Grab_Admin {
 						<!-- main content -->
 						<div id="post-body-content">
 							
-							<div class="meta-box-sortables ui-sortable">
-								
-								<div class="postbox">
-								
-									<div class="inside">
-							            <form method="post" action="options.php">
-							            <?php
-							                // This prints out all hidden setting fields
-							                settings_fields( 'instagrabagram_option_group' );   
-							                do_settings_sections( 'instagrabagram-setting-admin' );
-							                submit_button(); 
-							            ?>
-							            </form>
-									</div> <!-- .inside -->
-								
-								</div> <!-- .postbox -->
-								
-							</div> <!-- .meta-box-sortables .ui-sortable -->
+<div class="tabs">
+	<h2 class="nav-tab-wrapper">
+		<a href="#tab1" class="nav-tab nav-tab-active">Settings</a>
+		<a href="#tab2" class="nav-tab">Hook and Filters</a>
+<!-- 		<a href="#tab3" class="nav-tab">Tab #2</a> -->
+	</h2>
+	
+	<div id="tab1" class="tabs nav-tab-active">
+
+		<div class="meta-box-sortables ui-sortable">
+			
+			<div class="postbox">
+			
+				<div class="inside">
+		            <form method="post" action="options.php">
+		            <?php
+		                // This prints out all hidden setting fields
+		                settings_fields( 'instagrabagram_option_group' );   
+		                do_settings_sections( 'instagrabagram-setting-admin' );
+		                submit_button(); 
+		            ?>
+		            </form>
+				</div> <!-- .inside -->
+			
+			</div> <!-- .postbox -->
+			
+		</div> <!-- .meta-box-sortables .ui-sortable -->
+		
+	</div>
+	<div id="tab2" class="tabs">
+
+		<div class="meta-box-sortables ui-sortable">
+			
+			<div class="postbox">
+			
+				<div class="inside">
+					<h3><span>Hooks and Filters</span></h3>
+					<div class="inside">
+					<p>Adding the following hooks and filters to you own plugins or functions.php file will allow you to customise your own feed.</p>
+						
+<p>To filter the instagrabagram article markup id</p>
+<pre><code class="language-php">
+function example_igag_container_id( $article_id ) {
+	$article_id = 'instagrab';
+    return $article_id;
+}
+add_filter( 'igag_article_id', 'example_igag_container_id' );
+</code></pre>
+
+
+<p>To filter the instagrabagram ul markup id</p>
+<pre><code class="language-php">
+function example_igag_ul_id( $ul_id ) {
+	$ul_id = 'igag-ul';
+    return $ul_id;
+}
+add_filter( 'igag_ul_id', 'example_igag_ul_id' );
+</code></pre>
+
+<p>An add action before images feed</p>
+<pre><code class="language-php">
+function example_igag_before_images() {
+	echo '<header class="entry-header"><h2 class="entry-title">My Instagrabagram Feed!</h2></header>';
+}
+add_action('igag_before_ul_list_images', 'example_igag_before_images');
+</code></pre>
+
+<p>An add action after images feed</p>
+<pre><code class="language-php">
+function example_igag_after_images() {
+	echo '<div class="entry-content"><p>Thanks for taking a peek, you can hashtag us too! By using #instagrabagram</p></div>';
+}
+add_action('igag_after_ul_list_images', 'example_igag_after_images');
+</code></pre>
+
+					</div> <!-- .inside -->
+				</div> <!-- .inside -->
+			
+			</div> <!-- .postbox -->
+			
+		</div> <!-- .meta-box-sortables .ui-sortable -->
+		
+	</div>
+	<div id="tab3" class="tabs">
+		tabthree
+	</div>
+</div>
+
 							
 						</div> <!-- post-body-content -->
 						

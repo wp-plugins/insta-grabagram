@@ -48,9 +48,15 @@ once activated you will be given the CLIENT ID and CLIENT SECRET in your account
 
 == Screenshots ==
 
-Screen shots coming soon
+1. How it looks in the front end
+2. Really simple settings
+3. Include your own filters and hooks for flexibility
 
 == Changelog ==
+
+= 1.0.3 =
+
+* New actions and filter hooks added 
 
 = 1.0.2 =
 
