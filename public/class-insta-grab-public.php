@@ -124,14 +124,14 @@ class Insta_Grab_Public {
 		    
 		    $hashtag = $instasetup['insta_apitag'];	    
 
-			$medias = $instagram->getTagMedia($hashtag);
+			$medias = $instagram->getTagMedia($hashtag, 20);
 			$media_count = $instasetup['insta_count'];
 
 			// debug using $variable
 			// echo '<pre>'; print_r($medias); echo '</pre>';
 			
 			if ($medias->meta->code == '400'){
-				echo 'Cannot connect to your images';		
+				echo 'sorry couldn\'t connect to instagram';		
 			} else {
 				echo '<article id="'.apply_filters('igag_article_id', $article_id).'" class="hentry">';
 				do_action('igag_before_ul_list_images');

@@ -148,7 +148,7 @@ class Insta_Grab_Admin {
 <div class="tabs">
 	<h2 class="nav-tab-wrapper">
 		<a href="#tab1" class="nav-tab nav-tab-active">Settings</a>
-		<a href="#tab2" class="nav-tab">Hook and Filters</a>
+		<a href="#tab2" class="nav-tab">Hooks and Filters</a>
 <!-- 		<a href="#tab3" class="nav-tab">Tab #2</a> -->
 	</h2>
 	
@@ -185,7 +185,7 @@ class Insta_Grab_Admin {
 					<div class="inside">
 					<p>Adding the following hooks and filters to you own plugins or functions.php file will allow you to customise your own feed.</p>
 						
-<p>To filter the instagrabagram article markup id</p>
+					<p>To filter the instagrabagram article markup id</p>
 <pre><code class="language-php">
 function example_igag_container_id( $article_id ) {
 	$article_id = 'instagrab';
@@ -228,9 +228,11 @@ add_action('igag_after_ul_list_images', 'example_igag_after_images');
 		</div> <!-- .meta-box-sortables .ui-sortable -->
 		
 	</div>
+<!--
 	<div id="tab3" class="tabs">
 		tabthree
 	</div>
+-->
 </div>
 
 							
@@ -314,12 +316,19 @@ add_action('igag_after_ul_list_images', 'example_igag_after_images');
             'setting_section_id' // Section           
         );      
 
+        add_settings_section(
+            'instgram_setting_section_id', // ID
+            'Instagram Feed Settings', // Title
+            array( $this, 'print_instagram_section_info' ), // Callback
+            'instagrabagram-setting-admin' // Page
+        );  
+
         add_settings_field(
             'insta_apitag', // ID
-            'Hashtag', // Title 
+            'Inastagram Hashtag', // Title 
             array( $this, 'insta_apitag_callback' ), // Callback
             'instagrabagram-setting-admin', // Page
-            'setting_section_id' // Section           
+            'instgram_setting_section_id' // Section           
         );      
 
         add_settings_field(
@@ -327,7 +336,7 @@ add_action('igag_after_ul_list_images', 'example_igag_after_images');
             'How Many Images to pull (numeric)', // Title 
             array( $this, 'insta_count_callback' ), // Callback
             'instagrabagram-setting-admin', // Page
-            'setting_section_id' // Section           
+            'instgram_setting_section_id' // Section           
         );      
 
     }
@@ -357,6 +366,14 @@ add_action('igag_after_ul_list_images', 'example_igag_after_images');
 
 
         return $new_input;
+    }
+
+    /** 
+     * Print the Section text
+     */
+    public function print_instagram_section_info()
+    {
+        print 'Enter the Instagram Hashtag and number of images:';
     }
 
     /** 
