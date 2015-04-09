@@ -247,9 +247,21 @@ add_action('igag_after_ul_list_images', 'example_igag_after_images');
 								
 									<h3><span>What next?</span></h3>
 									<div class="inside">
-							            <p>Once all of the settings from your new Instagram Client are saved copy and paste the code below into your template files where you want the feed to appear.</p>
+
+										<p>Once installed there are a couple of things you need to do to get things working.</p> 
+										<ol>
+											<li>Go to <a href="http://Instagram.com/developer/">http://Instagram.com/developer/</a> and click the button that says "Register Your Application"</li>
+											<li>Fill in the details requested by Instagram, these will be thing like Application Name, Description, Website and redirect_uri (same as website will do).</li>
+											<li>Once complete you will be given a CLIENT ID and a CLIENT SECRET.</li>
+											<li>Now simply copy and paste the CLIENT ID, CLIENT SECRET and WEBSITE URI to this settings page which can be found from Dashboard > Settings > Instagrabagram.</li>
+											<li>Save your settings then place <br>&lt;?php do_action('insta_grab_a_gram'); ?&gt;<br> where you want your feed to appear in one of your theme templates files.</li>
+											<li>Take some instagrams and hashtag them with the hashtag you setup in the settings and your feed will auto populate</li>
+										</ol>
+							            <p><strong>Note:</strong> For this to work correctly you should have access to your template files, this is not shortcode it is a php custom action tag and must be placed in your template files where you want the feed to appear. If you do not have access then you should get your web developer or host to place this action tag.</p>
 							            <p>&lt;?php do_action('insta_grab_a_gram'); ?&gt;</p>
 							            
+							            <p>There are plans to create a shortcode option for future updates but for now this is the only way to make this plugin work, sorry for an inconvenience caused at this time.</p>
+
 									</div> <!-- .inside -->
 									
 								</div> <!-- .postbox -->

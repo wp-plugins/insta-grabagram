@@ -54,6 +54,10 @@ once activated you will be given the CLIENT ID and CLIENT SECRET in your account
 
 == Changelog ==
 
+= 1.0.5 =
+
+* Improved installation instructions in the admin settings page.
+
 = 1.0.4 =
 
 * A fix to limited calls to Instagram, must be no more than 20 
